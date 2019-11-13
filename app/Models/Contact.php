@@ -12,6 +12,7 @@ class Contact extends Model
         'subject',
         'comment',
         'reply',
+        'replied',
     
     ];
     

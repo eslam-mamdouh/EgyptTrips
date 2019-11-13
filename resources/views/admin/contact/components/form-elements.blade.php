@@ -25,17 +25,18 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('comment'), 'has-success': this.fields.comment && this.fields.comment.valid }">
     <label for="comment" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contact.columns.comment') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <textarea disabled v-model="form.comment" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('comment'), 'form-control-success': this.fields.comment && this.fields.comment.valid}" id="comment" name="comment" placeholder="{{ trans('admin.contact.columns.comment') }}"></textarea>
+        <textarea disabled v-model="form.comment" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('comment'), 'form-control-success': this.fields.comment && this.fields.comment.valid}" id="comment" name="comment"></textarea>
         <div v-if="errors.has('comment')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('comment') }}</div>
     </div>
 </div>
-<hr>
+
 <p class="alert alert-warning" style="text-align:center">Send a Reply</p>
+
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('reply'), 'has-success': this.fields.reply && this.fields.reply.valid }">
-    <label for="reply" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Reply</label>
+    <label for="reply" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contact.columns.reply') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <div>
-            <wysiwyg v-model="form.reply" v-validate="'required'" id="reply" name="reply" :config="mediaWysiwygConfig"></wysiwyg>
+            <wysiwyg v-model="form.reply" v-validate="''" id="reply" name="reply" :config="mediaWysiwygConfig"></wysiwyg>
         </div>
         <div v-if="errors.has('reply')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('reply') }}</div>
     </div>

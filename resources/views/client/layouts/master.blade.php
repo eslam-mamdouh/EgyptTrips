@@ -45,7 +45,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/offers">Offers</a></li>
+                        <li><a href="/offers">{{trans('Offers')}}</a></li>
 						<li><a href="/reviews">Reviews</a></li>
                         <li><a href="/galleries">Gallary</a></li>
                         <li><a href="/contact">Contact</a></li>

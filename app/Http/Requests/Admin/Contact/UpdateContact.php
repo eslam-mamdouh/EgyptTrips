@@ -26,10 +26,11 @@ class UpdateContact extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['sometimes', 'string'],
-            'email' => ['sometimes', 'email', 'string'],
-            'subject' => ['sometimes', 'string'],
-            'comment' => ['sometimes', 'string'],
+            'name'      => ['sometimes', 'string'],
+            'email'     => ['sometimes', 'email', 'string'],
+            'subject'   => ['sometimes', 'string'],
+            'comment'   => ['sometimes', 'string'],
+            'replay'    => ['sometimes', 'string'],
             
         ];
     }

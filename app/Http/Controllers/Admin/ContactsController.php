@@ -13,6 +13,8 @@ use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use App\Mail\Contact as ContactMail;
+use Mail;
 
 class ContactsController extends Controller
 {
@@ -31,12 +33,13 @@ class ContactsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'email', 'subject', 'comment'],
+            ['id', 'name', 'email', 'subject','replied'],
 
             // set columns to searchIn
-            ['id', 'name', 'email', 'subject', 'comment']
+            ['id', 'name', 'email', 'subject', 'comment', 'replied']
         );
 
+        // dd($data);
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
@@ -125,7 +128,10 @@ class ContactsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized['reply'] = $request->reply;
+        $sanitized['replied'] = 1;
+        // dd($sanitized['email']);
+        Mail::to($sanitized['email'])->send(new ContactMail($sanitized));
         // Update changed values Contact
         $contact->update($sanitized);
 

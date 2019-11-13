@@ -6,7 +6,7 @@ body, body *:not(html):not(style):not(br):not(tr):not(code) {
 }
 
 body {
-    background-color: #4A6DF5;
+    background-color: #FFCE8B;
     color: #74787E;
     height: 100%;
     hyphens: auto;
@@ -25,7 +25,7 @@ p,
 ul,
 ol,
 blockquote {
-    line-height: 1.4;
+    line-height: 1.4 !important;
     text-align: left;
 }
 
@@ -83,7 +83,7 @@ img {
 /* Layout */
 
 .wrapper {
-    background-color: #4A6DF5;
+    background-color: #FFCE8B;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -104,7 +104,7 @@ img {
 /* Header */
 
 .header {
-    padding: 25px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -218,11 +218,11 @@ img {
 
 .button-blue,
 .button-primary {
-    background-color: #4A6DF5;
-    border-top: 10px solid #4A6DF5;
-    border-right: 18px solid #4A6DF5;
-    border-bottom: 10px solid #4A6DF5;
-    border-left: 18px solid #4A6DF5;
+    background-color: #FFCE8B;
+    border-top: 10px solid #FFCE8B;
+    border-right: 18px solid #FFCE8B;
+    border-bottom: 10px solid #FFCE8B;
+    border-left: 18px solid #FFCE8B;
 }
 
 .button-green,
@@ -285,4 +285,7 @@ img {
 .promotion p {
     font-size: 15px;
     text-align: center;
+}
+*{
+    line-height: 1.4 !important;
 }

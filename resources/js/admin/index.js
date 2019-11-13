@@ -4,3 +4,6 @@ import './trip';
 import './offer';
 import './gallery';
 import './contact';
+import './profile-edit-profile';
+import './profile-edit-password';
+import './admin-user';

@@ -111171,6 +111171,100 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/admin-user/Form.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/admin-user/Form.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('admin-user-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        activated: false,
+        forbidden: false,
+        language: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/admin-user/Listing.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/admin-user/Listing.js ***!
+  \**************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('admin-user-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  methods: {
+    resendActivation: function resendActivation(url) {
+      var _this = this;
+
+      axios.get(url).then(function (response) {
+        if (response.data.message) {
+          _this.$notify({
+            type: 'success',
+            title: 'Success',
+            text: response.data.message
+          });
+        } else if (response.data.redirect) {
+          window.location.replace(response.data.redirect);
+        }
+      })["catch"](function (errors) {
+        if (errors.response.data.message) {
+          _this.$notify({
+            type: 'error',
+            title: 'Error!',
+            text: errors.response.data.message
+          });
+        }
+      });
+    }
+  },
+  props: {
+    'activation': {
+      type: Boolean,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/admin-user/index.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/admin-user/index.js ***!
+  \************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/admin-user/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/admin-user/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/admin.js":
 /*!*************************************!*\
   !*** ./resources/js/admin/admin.js ***!
@@ -111499,6 +111593,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _offer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./offer */ "./resources/js/admin/offer/index.js");
 /* harmony import */ var _gallery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gallery */ "./resources/js/admin/gallery/index.js");
 /* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contact */ "./resources/js/admin/contact/index.js");
+/* harmony import */ var _profile_edit_profile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./profile-edit-profile */ "./resources/js/admin/profile-edit-profile/index.js");
+/* harmony import */ var _profile_edit_password__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./profile-edit-password */ "./resources/js/admin/profile-edit-password/index.js");
+/* harmony import */ var _admin_user__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin-user */ "./resources/js/admin/admin-user/index.js");
+
+
+
 
 
 
@@ -111562,6 +111662,108 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/offer/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/offer/Form.js");
 
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/profile-edit-password/Form.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/admin/profile-edit-password/Form.js ***!
+  \**********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('profile-edit-password-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  methods: {
+    onSuccess: function onSuccess(data) {
+      if (data.notify) {
+        this.$notify({
+          type: data.notify.type,
+          title: data.notify.title,
+          text: data.notify.message
+        });
+      } else if (data.redirect) {
+        window.location.replace(data.redirect);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/profile-edit-password/index.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/admin/profile-edit-password/index.js ***!
+  \***********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/profile-edit-password/Form.js");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/profile-edit-profile/Form.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/profile-edit-profile/Form.js ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('profile-edit-profile-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        activated: false,
+        forbidden: false,
+        language: ''
+      },
+      mediaCollections: ['avatar']
+    };
+  },
+  methods: {
+    onSuccess: function onSuccess(data) {
+      if (data.notify) {
+        this.$notify({
+          type: data.notify.type,
+          title: data.notify.title,
+          text: data.notify.message
+        });
+      } else if (data.redirect) {
+        window.location.replace(data.redirect);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/profile-edit-profile/index.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/admin/profile-edit-profile/index.js ***!
+  \**********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/profile-edit-profile/Form.js");
 
 
 /***/ }),

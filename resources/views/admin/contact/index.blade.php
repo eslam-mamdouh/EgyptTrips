@@ -51,6 +51,7 @@
                                     <th is='sortable' :column="'name'">{{ trans('admin.contact.columns.name') }}</th>
                                     <th is='sortable' :column="'email'">{{ trans('admin.contact.columns.email') }}</th>
                                     <th is='sortable' :column="'subject'">{{ trans('admin.contact.columns.subject') }}</th>
+                                    <th is='sortable' :column="'replied'">{{ trans('admin.contact.columns.reply') }}</th>
 
                                     <th></th>
                                 </tr>
@@ -78,10 +79,13 @@
                                     <td>@{{ item.name }}</td>
                                     <td>@{{ item.email }}</td>
                                     <td>@{{ item.subject }}</td>                                    
+                                    <td v-if="item.replied == 0"><span style="background: #be0c0c; color:#FFF;border-radius:8px ; padding:3px 5px">no reply</span></td>                                    
+                                    <td v-if="item.replied == 1"><span style="background: #2e9967; color:#FFF;border-radius:8px ; padding:3px 5px">replied</span></td>                                    
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto">
-                                                <a class="btn btn-sm btn-spinner btn-info" :href="item.resource_url + '/edit'" title="{{ trans('brackets/admin-ui::admin.btn.edit') }}" role="button"><i class="fa fa-edit"></i> Reply</a>
+                                                <a v-if="item.replied === 0" class="btn btn-sm btn-spinner btn-info" :href="item.resource_url + '/edit'" title="{{ trans('brackets/admin-ui::admin.btn.edit') }}" role="button"><i class="fa fa-edit"></i> Reply</a>
+                                                <a v-if="item.replied === 1" class="btn btn-sm btn-spinner btn-info" :href="item.resource_url + '/edit'" title="{{ trans('brackets/admin-ui::admin.btn.edit') }}" role="button"><i class="fa fa-edit"></i> View</a>
                                             </div>
                                         </div>
                                     </td>
