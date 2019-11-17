@@ -1,16 +1,9 @@
 <?php
 
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\News::class, static function (Faker\Generator $faker) {
-    return [
-        
-        
-    ];
-});
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Slider::class, static function (Faker\Generator $faker) {
     return [
-        'image' => $faker->text(),
+        'image' => "image",
         'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
@@ -66,19 +59,7 @@ $factory->define(App\Models\Gallery::class, static function (Faker\Generator $fa
         
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\Contact::class, static function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->firstName,
-        'email' => $faker->email,
-        'subject' => $faker->sentence,
-        'comment' => $faker->sentence,
-        'created_at' => $faker->dateTime,
-        'updated_at' => $faker->dateTime,
-        
-        
-    ];
-});
+
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Contact::class, static function (Faker\Generator $faker) {
     return [
@@ -107,6 +88,20 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
         'deleted_at' => null,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
+        
+    ];
+});/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Review::class, static function (Faker\Generator $faker) {
+    return [
+        'trip' => $faker->sentence,
+        'rate' => $faker->randomNumber(5),
+        'comment' => $faker->sentence,
+        'name' => $faker->firstName,
+        'country' => $faker->sentence,
+        'message' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
         
     ];
 });

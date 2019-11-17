@@ -172,5 +172,26 @@ return [
         ],
     ],
 
+    'review' => [
+        'title' => 'Reviews',
+
+        'actions' => [
+            'index' => 'Reviews',
+            'create' => 'New Review',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'trip' => 'Trip',
+            'rate' => 'Rate',
+            'comment' => 'Comment',
+            'name' => 'Name',
+            'country' => 'Country',
+            'message' => 'Message',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

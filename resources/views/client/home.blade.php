@@ -40,11 +40,13 @@
                                     <div class="exbox-inner">
                                         <a class="exbox-h"
                                             href="">{{$trip->title}}</a>
-                                        <div class="stars"><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>
+                                        <div class="stars">
+                                             @for($i=1 ; $i<=$trip->rate(); $i++)
+                                                <i class="fa fa-star"></i>
+                                             @endfor
+                                        </div>
                                         <p class="s">{!! $trip->description !!}...</p>
-                                        <div class="fprice">{{$trip->price}}</div>
+                                        <div class="fprice">${{$trip->price}}</div>
                                     </div>
                                 </div>
                             </div> 
@@ -53,7 +55,7 @@
                     </div>
                     <div class="catHolder_bottom">
                         <p align="center"><a class="btn btn-primary"
-                                href="/distinations/{{$dist->slug}}">View all Trips from {{$dist->name}}</a></p>
+                                href="/distination/trips/{{$dist->slug}}">View all Trips from {{$dist->name}}</a></p>
                         <p align="center">There's Trips from {{$dist->name}} starting from just &pound;7, click
                             to view our full range.</p>
                     </div>
@@ -83,39 +85,25 @@
             <p>Book your tours in Egypt today and make the most of your time in Egypt.</p>
             <hr class="break" />
             <h3>Our Latest Review</h3>
-            <div  class="testomonials white">
-                <div class="ph"><img src="systemimages/cairo-tour.jpg" class="test_img" /></div><strong
-                    itemprop="itemreviewed"><a href="index.html">Cairo One Day Tour from Hurghada by A/C
-                        Vehicle </a></strong>
-                <div itemprop="rating" content="5" class="stars"><i class="fa fa-star"
-                        aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
-                        class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
-                        aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>
-                <div itemprop="description" class="main">Highly recommend! We had a fantastic day. The
-                    hotel pick up was nice and easy and a pleasant air conditioned car trip to Luxor. No
-                    hassle of busy coaches with lots of other people super early in the morning. Perfect
-                    way to start the trip. Once arriving at our first destination we meet with our
-                    private guide Mahmood who was amazing. So knowledgeable, talking through the history
-                    of each place and providing opportunities to add to our trip if we wanted but happy
-                    to continue if we chose not to take any extras. Going across the Nile by boat and
-                    going down to Tutankhamen&#39;s tomb was certainly worth the extra bit (about an
-                    extra £14). It was a long day but we got to take it at our pace and because it was a
-                    private tour there was no waiting around for others to rejoin the group and when its
-                    42 degrees the last thing you want to be doing is waiting in the heat. We chose to
-                    do this experience on our 3 day (went for 10 day holiday) as we knew it was a long
-                    day and glad we did as we felt like we had need a few days to relax afterwards! I
-                    cannot speak highly enough of the places we saw and of Mahmood and the driver
-                    (apologies I cant remember how to spell you name) but he stopped and pick us all up
-                    some ice lollies for the drive back which was very sweet. If your looking to go to
-                    Luxor this was the way to do it!<br /><br />Thanks for a great day<br />Sarah &
-                    Steve</div>
-                <div class="logo">&nbsp;</div>
-                <div class="test_name">
-                    <strong><span itemprop="reviewer">Sarah</span></strong>
-                    from Johnson - 30th Sep 2019
-                    <time itemprop="dtreviewed" datetime="2019-09-30">2019-09-30</time>
-                </div>
-            </div>
+            <div itemscope itemtype="http://data-vocabulary.org/Review" class="testomonials blue">
+					<div class="ph">
+						<img src="{{$lstReview->image}}" width="100px" height="100px" class="test_img" />
+					</div>
+							<strong itemprop="itemreviewed"><a href="/trips/{{$lstReview->slug}}">{{$lstReview->trip}} </a></strong>
+							<div itemprop="rating" content="5" class="stars">
+								@for($i=1 ; $i <= $lstReview->rate ; $i++ )
+									<i class="fa fa-star" aria-hidden="true"></i>
+								@endfor
+							</div>
+							<div itemprop="description" class="main">
+								{{$lstReview->comment}}
+							</div>
+					<div class="test_name">
+						<strong><span itemprop="reviewer">{{$lstReview->name}}</span></strong> 
+						from {{$lstReview->country}}  - {{$lstReview->created_at}}
+					</div>
+				</div>
+
             <hr class="break" />
     
         </div>

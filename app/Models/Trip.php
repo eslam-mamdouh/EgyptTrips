@@ -31,9 +31,14 @@ class Trip extends Model implements HasMedia
     
     protected $appends = ['resource_url', 'image'];
 
+
     public function distination()
     {
         return $this->hasOne('App\Models\TripsDistination', 'id','distination_id');
+    }
+
+    public function rate(){
+        return (int)($this->join('reviews','reviews.trip','=','trips.title')->avg('rate'));
     }
 
     public function registerMediaCollections() {

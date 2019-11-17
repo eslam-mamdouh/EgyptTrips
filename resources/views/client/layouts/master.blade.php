@@ -21,12 +21,15 @@
 	<script src="/inc/bootstrap/bootstrap.min.js"></script>
 	<!-- Other Modules -->
 	<link rel="stylesheet" href="/inc/modules/fontawesome/font-awesome-4-3-0/css/font-awesome.min.css">
+
 <style>
     .carousel-inner img{
         height: 450px !important;
         width: 100%
     }
 </style>
+
+@yield('links')
 </head>
 
 <body>
@@ -125,7 +128,7 @@
 					<div id="navbar-collapse-2" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li class="dropdown yamm-fw">
-								<a href="/distinations{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" class="dropdown-toggle"><span>Trips from
+								<a href="/distinations{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" style="background-image: url({{$distinations[0]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[0]->name}}</span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -203,7 +206,7 @@
 								</ul>
 							</li>
 							<li class="dropdown yamm-fw">
-								<a href="/distinations{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" class="dropdown-toggle"><span>Trips from
+								<a href="/distinations{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[1]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -277,7 +280,7 @@
 								</ul>
 							</li>
 							<li class="dropdown yamm-fw">
-								<a href="/distinations{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" class="dropdown-toggle"><span>Trips from
+								<a href="/distinations{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" style="	background-image: url({{$distinations[2]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[2]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -432,6 +435,8 @@
 		ga('send', 'pageview');
 	</script>
 
+
+	@yield('scripts')
 </body>
 
 </html>

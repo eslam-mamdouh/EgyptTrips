@@ -19,6 +19,20 @@ Route::get('/', function () {
     
 });
 
+/////////////////////////// Client ///////////////////////////////
+
+Route::get("/" , 'Client\HomeController@index');
+Route::get("/contact" , 'Client\ContactController@index');
+Route::post("/contact" , 'Client\ContactController@postInquiry');
+Route::get("/galleries" , 'Client\GalleryController@index');
+Route::get("/galleries/{slug}" , 'Client\GalleryController@distImages');
+Route::get("/reviews" , 'Client\ReviewsController@index');
+Route::get("/reviews/add" , 'Client\ReviewsController@add');
+Route::post("/reviews/add" , 'Client\ReviewsController@store');
+Route::get("/offers"  , 'Client\OffersController@index');
+Route::get("/distination/trips/{slug}"  , 'Client\TripsController@distinationTrips');
+Route::get("/trips/{slug}"  , 'Client\TripsController@Trip');
+
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
@@ -75,16 +89,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::delete('/admin/galleries/{gallery}',                 'Admin\GalleriesController@destroy')->name('admin/galleries/destroy');
 });
 
-/////////////////////////// Client ///////////////////////////////
-
-Route::get("/" , 'Client\HomeController@index');
-Route::get("/contact" , 'Client\ContactController@index');
-Route::post("/contact" , 'Client\ContactController@postInquiry');
-Route::get("/galleries" , 'Client\GalleryController@index');
-Route::get("/galleries/{slug}" , 'Client\GalleryController@distImages');
-Route::get("/reviews" , 'Client\ReviewsController@index');
-Route::get("/offers"  , 'Client\OffersController@index');
-
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
@@ -114,4 +118,15 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/admin-users/{adminUser}',               'Admin\AdminUsersController@update')->name('admin/admin-users/update');
     Route::delete('/admin/admin-users/{adminUser}',             'Admin\AdminUsersController@destroy')->name('admin/admin-users/destroy');
     Route::get('/admin/admin-users/{adminUser}/resend-activation','Admin\AdminUsersController@resendActivationEmail')->name('admin/admin-users/resendActivationEmail');
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::get('/admin/reviews',                                'Admin\ReviewsController@index');
+    Route::get('/admin/reviews/create',                         'Admin\ReviewsController@create');
+    Route::post('/admin/reviews',                               'Admin\ReviewsController@store');
+    Route::get('/admin/reviews/{review}/edit',                  'Admin\ReviewsController@edit')->name('admin/reviews/edit');
+    Route::post('/admin/reviews/bulk-destroy',                  'Admin\ReviewsController@bulkDestroy')->name('admin/reviews/bulk-destroy');
+    Route::post('/admin/reviews/{review}',                      'Admin\ReviewsController@update')->name('admin/reviews/update');
+    Route::delete('/admin/reviews/{review}',                    'Admin\ReviewsController@destroy')->name('admin/reviews/destroy');
 });
