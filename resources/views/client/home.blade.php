@@ -84,25 +84,28 @@
                 spent zooming over the golden desert sands on a quad bike!</p>
             <p>Book your tours in Egypt today and make the most of your time in Egypt.</p>
             <hr class="break" />
-            <h3>Our Latest Review</h3>
-            <div itemscope itemtype="http://data-vocabulary.org/Review" class="testomonials blue">
-					<div class="ph">
-						<img src="{{$lstReview->image}}" width="100px" height="100px" class="test_img" />
-					</div>
-							<strong itemprop="itemreviewed"><a href="/trips/{{$lstReview->slug}}">{{$lstReview->trip}} </a></strong>
-							<div itemprop="rating" content="5" class="stars">
-								@for($i=1 ; $i <= $lstReview->rate ; $i++ )
-									<i class="fa fa-star" aria-hidden="true"></i>
-								@endfor
-							</div>
-							<div itemprop="description" class="main">
-								{{$lstReview->comment}}
-							</div>
-					<div class="test_name">
-						<strong><span itemprop="reviewer">{{$lstReview->name}}</span></strong> 
-						from {{$lstReview->country}}  - {{$lstReview->created_at}}
-					</div>
-				</div>
+            @if($lstReview)
+
+                <h3>Our Latest Review</h3>
+                <div itemscope itemtype="http://data-vocabulary.org/Review" class="testomonials blue">
+                        <div class="ph">
+                            <img src="{{$lstReview->image}}" width="100px" height="100px" class="test_img" />
+                        </div>
+                                <strong itemprop="itemreviewed"><a href="/trips/{{$lstReview->slug}}">{{$lstReview->trip}} </a></strong>
+                                <div itemprop="rating" content="5" class="stars">
+                                    @for($i=1 ; $i <= $lstReview->rate ; $i++ )
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    @endfor
+                                </div>
+                                <div itemprop="description" class="main">
+                                    {{$lstReview->comment}}
+                                </div>
+                        <div class="test_name">
+                            <strong><span itemprop="reviewer">{{$lstReview->name}}</span></strong> 
+                            from {{$lstReview->country}}  - {{$lstReview->created_at}}
+                        </div>
+                    </div>
+                @endif
 
             <hr class="break" />
     

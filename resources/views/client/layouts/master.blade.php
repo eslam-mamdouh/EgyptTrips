@@ -65,16 +65,20 @@
 				<div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="4000"
 					data-pause="hover">
 					<div class="carousel-inner" role="listbox">
-                        @foreach ($sliders as $slider )
-                            @if ($loop->first)
+						@if ($sliders)
+							
+							@foreach ($sliders as $slider )
+								@if ($loop->first)
 
-	    					    <div class="item active"><img height="200px" width="100%" src="{{$slider->image}}"
-                                    class="img-responsive" /></div>
-                            @else
-                                <div class="item"><img height="200px" width="100%" src="{{$slider->image}}"
-                                    class="img-responsive" /></div>
-                            @endif
-                        @endforeach
+									<div class="item active"><img height="200px" width="100%" src="{{$slider->image}}"
+										class="img-responsive" /></div>
+								@else
+									<div class="item"><img height="200px" width="100%" src="{{$slider->image}}"
+										class="img-responsive" /></div>
+								@endif
+							@endforeach
+						@endif
+						
                     </div>
 
 					<a class="left carousel-control" href="/#homeCarousel" role="button" data-slide="prev"><i
@@ -91,16 +95,20 @@
 			<div class="site_banner_hold">
 				<div id="homeCarousel_phone" class="carousel slide" data-ride="carousel" data-interval="4000">
 					<div class="carousel-inner" role="listbox">
-                        @foreach ($sliders as $slider )
-                            @if ($loop->first)
+						@if ($sliders)
+							
+							@foreach ($sliders as $slider )
+								@if ($loop->first)
 
-	    					    <div class="item active"><img height="200px" width="100%" src="{{$slider->image}}"
-                                    class="img-responsive" /></div>
-                            @else
-                                <div class="item"><img height="200px" width="100%" src="{{$slider->image}}"
-                                    class="img-responsive" /></div>
-                            @endif
-                        @endforeach
+									<div class="item active"><img height="200px" width="100%" src="{{$slider->image}}"
+										class="img-responsive" /></div>
+								@else
+									<div class="item"><img height="200px" width="100%" src="{{$slider->image}}"
+										class="img-responsive" /></div>
+								@endif
+							@endforeach
+						@endif
+						
 					</div>
 					<a class="left carousel-control" href="/#homeCarousel_phone" role="button" data-slide="prev"><i
 							class="fa fa-chevron-left icon-prev"></i></a>
@@ -128,17 +136,17 @@
 					<div id="navbar-collapse-2" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li class="dropdown yamm-fw">
-								<a href="/distinations{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" style="background-image: url({{$distinations[0]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="//distination/trips/{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" style="background-image: url({{$distinations[0]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[0]->name}}</span></a>
 								<ul class="dropdown-menu">
 									<li>
 										<div class="yamm-content">
 											<div class="row">
 												<div class="col-xs-12 col-sm-3 col-md-3 tour-nav-l">
-													<a href="/{{$distinations[0]->slug}}"><img
+													<a href="/distination/trips/{{$distinations[0]->slug}}"><img
 															src="{{$distinations[0]->image}}"
 															class="img-responsive img-rounded" /></a>
-													<a href="/{{$distinations[0]->slug}}"
+													<a href="/distination/trips/{{$distinations[0]->slug}}"
 														class="btn btn-primary btn-block">Show all Trips from
 														Hurghada</a>
 												</div>
@@ -206,16 +214,16 @@
 								</ul>
 							</li>
 							<li class="dropdown yamm-fw">
-								<a href="/distinations{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="//distination/trips/{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[1]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
 										<div class="yamm-content">
 											<div class="row">
 												<div class="col-xs-12 col-sm-3 col-md-3 tour-nav-l">
-													<a href="/distinations{{$distinations[1]->slug}}"><img src="{{$distinations[1]->image}}"
+													<a href="/distination/trips/{{$distinations[1]->slug}}"><img src="{{$distinations[1]->image}}"
 															class="img-responsive img-rounded" /></a>
-													<a href="/distinations{{$distinations[1]->slug}}" class="btn btn-primary btn-block">Show all
+													<a href="/distination/trips/{{$distinations[1]->slug}}" class="btn btn-primary btn-block">Show all
 														Trips from {{$distinations[1]->name}} </a>
 												</div>
 												<div class="col-sm-9 col-md-6 tour-nav-m hidden-xs">
@@ -280,16 +288,16 @@
 								</ul>
 							</li>
 							<li class="dropdown yamm-fw">
-								<a href="/distinations{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" style="	background-image: url({{$distinations[2]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="/distination/trips/{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" style="	background-image: url({{$distinations[2]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[2]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
 										<div class="yamm-content">
 											<div class="row">
 												<div class="col-xs-12 col-sm-3 col-md-3 tour-nav-l">
-													<a href="/distinations{{$distinations[2]->slug}}"><img src="{{$distinations[2]->image}}"
+													<a href="/distination/trips/{{$distinations[2]->slug}}"><img src="{{$distinations[2]->image}}"
 															class="img-responsive img-rounded" /></a>
-													<a href="/distinations{{$distinations[2]->slug}}" class="btn btn-primary btn-block">Show all
+													<a href="/distination/trips/{{$distinations[2]->slug}}" class="btn btn-primary btn-block">Show all
 														Trips from {{$distinations[2]->name}}</a>
 												</div>
 												<div class="col-sm-9 col-md-6 tour-nav-m hidden-xs">
