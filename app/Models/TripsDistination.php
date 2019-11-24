@@ -51,7 +51,10 @@ class TripsDistination extends Model implements HasMedia
 
     public function getImageAttribute()
     {
-        return $this->getMedia('distinations')[0]->getUrl();
+        $items = $this->getMedia('distinations');
+        if($items){
+            return $items[0]->getUrl();
+        }
     }
 
     public function setSlugAttribute()

@@ -50,6 +50,9 @@ class Gallery extends Model implements HasMedia
 
         public function getImageAttribute()
     {
-        return $this->getMedia('galleries')[0]->getUrl();
+        $items = $this->getMedia('galleries');
+        if($items){
+            return $items[0]->getUrl();
+        }
     }
 }

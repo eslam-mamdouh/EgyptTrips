@@ -44,6 +44,10 @@ class Slider extends Model implements HasMedia
 
     public function getImageAttribute()
     {
-        return $this->getMedia('sliders')[0]->getUrl();
+        $items = $this->getMedia('sliders');
+        if($items){
+
+            return $items[0]->getUrl();
+        }
     }
 }

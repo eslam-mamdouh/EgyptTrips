@@ -13,11 +13,6 @@
 use Illuminate\Support\Facades\Hash;
 
 
-Route::get('/', function () {
-    
-    return Hash::make("123456789");
-    
-});
 
 /////////////////////////// Client ///////////////////////////////
 

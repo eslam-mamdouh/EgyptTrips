@@ -28,7 +28,7 @@
                                 <div class="exbox f_in clearfix">
                                     <div class="pp10">&nbsp;</div>
                                     <div class="exbox-img-hold">
-                                        <a href=""><img
+                                        <a href="/trips/{{$trip->slug}}"><img
                                                 src="{{$trip->image}}"
                                                 class="exbox-img"
                                                 alt="" /></a>
@@ -45,7 +45,9 @@
                                                 <i class="fa fa-star"></i>
                                              @endfor
                                         </div>
-                                        <p class="s">{!! $trip->description !!}...</p>
+                                        <div class="s">
+                                            {!! $trip->description !!}
+                                        </div>
                                         <div class="fprice">${{$trip->price}}</div>
                                     </div>
                                 </div>

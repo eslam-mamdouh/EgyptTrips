@@ -3,12 +3,18 @@
     <div class="col-md-12">
 					<h2 class="isotope-button-title">trip World Gallery</h2>
 					<hr>
-					<div id="isotope-filters" class="isotope-button-group"><button type="button"
-							class="link" data-filter="*"><a href="/galleries#images"> show all</a></button> <button type="button"
-							class="link" data-filter=".dolphin-show"><a href="/galleries/{{$dists[0]->slug}}#images"> from {{$dists[0]->name}} </a>
-						</button> <button type="button" class="link" data-filter=".show-animals"><a href="/galleries/{{$dists[1]->slug}}#images">Trips from
-							{{$dists[1]->name}}</a></button> <button type="button" class="link is-checked"
-							data-filter=".dolphin-therapy"><a href="/galleries/{{$dists[2]->slug}}#images">Trips from {{$dists[2]->name}}</a></button></div>
+					<div id="isotope-filters" class="isotope-button-group">
+							<button type="button"
+								class="link" data-filter="*"><a href="/galleries#images"> show all</a>
+							</button>
+							@foreach ($dists as $dist )
+								<button type="button"
+									class="link" data-filter=".dolphin-show"><a href="/galleries/{{$dist->slug}}#images"> from {{$dist->name}} </a>
+								</button>
+							@endforeach
+							
+
+					</div>
 				</div>
 
 				@foreach ($galleries as $gallery)	

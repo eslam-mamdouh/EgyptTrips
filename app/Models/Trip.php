@@ -56,6 +56,9 @@ class Trip extends Model implements HasMedia
 
     public function getImageAttribute()
     {
-        return $this->getMedia('trips')[0]->getUrl();
+        $items =$this->getMedia('trips');
+        if($items){
+            return $items[0]->getUrl();
+        }
     }
 }

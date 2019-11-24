@@ -16,8 +16,7 @@ class TripsController extends Controller
 
     public function trip($slug)
     {
-        // $trip = Trip::where("slug" ,$slug)->get();
-        $trip="sda";
+        $trip = Trip::where("slug" ,$slug)->first();
         return view('client.trips.show',['trip'=>$trip]);
     }
 }

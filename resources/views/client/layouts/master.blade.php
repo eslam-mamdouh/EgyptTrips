@@ -135,6 +135,7 @@
 					</div>
 					<div id="navbar-collapse-2" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
+						@if(isset($distinations[0]))
 							<li class="dropdown yamm-fw">
 								<a href="//distination/trips/{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" style="background-image: url({{$distinations[0]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[0]->name}}</span></a>
@@ -213,8 +214,11 @@
 									</li>
 								</ul>
 							</li>
+							@endif
+						@if(isset($distinations[1]))
+
 							<li class="dropdown yamm-fw">
-								<a href="//distination/trips/{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="/distination/trips/{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[1]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -287,6 +291,8 @@
 									</li>
 								</ul>
 							</li>
+							@endif
+							@if(isset($distinations[2]))
 							<li class="dropdown yamm-fw">
 								<a href="/distination/trips/{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" style="	background-image: url({{$distinations[2]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
 										{{$distinations[2]->name}} </span></a>
@@ -324,6 +330,7 @@
 											</div>
 										</div>
 									</li>
+									@endif
 								</ul>
 							</li>
 						</ul>
