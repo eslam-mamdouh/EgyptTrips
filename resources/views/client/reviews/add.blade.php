@@ -5,17 +5,19 @@
 <div class="col-md-9">
 
                 <!-- /.main col -->  
-                <h1>Write a Review <small>Your review of Egypt Excursions</small></h1>
+                <h1>{{trans('client.reviews.index.write_review')}} </h1>
                      
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a>
-                    </li><li><a href="/reviews">Egypt Excursion Reviews</a>
-                    </li><li class="active">Write a Review</li>
+                    </li><li><a href="/reviews">{{trans('client.reviews.index.title')}}</a>
+                    </li><li class="active">{{trans('client.reviews.index.write_review')}}</li>
                 </ul>
                 
                            
                 
-            <p class="lead">Please share your experience and opinions of Egypt Excursions with the rest of the world, and help us show why we're Egypt's favourite tour operator</p>
+            <p class="lead">
+                {{trans('client.reviews.add.header')}}
+            </p>
             @if (session('message'))
                 <p class="alert alert-success">{{session('message')}}</p>
             @endif
@@ -31,7 +33,7 @@
             <form id="form1" name="form1" method="post" action="/reviews/add" enctype="multipart/form-data">
                     @csrf
                 <div class="form-group">
-                  <label for="trip">Excursion to review</label>
+                  <label for="trip">{{trans('client.reviews.form.title')}}</label>
                   <select name="trip" required id="trip" class="form-control">
                     @foreach($tripsDists as $dist)
 
@@ -43,19 +45,19 @@
                         </optgroup>
                     @endforeach
                         <optgroup label="Other">
-                            <option value="General">General Comment</option>
+                            <option value="General">{{trans('client.reviews.add.form.general_comment')}}</option>
                         </optgroup>
                   </select>
                       </div>
                       
                 <div class="row"><div class="col-sm-6">	  
                     <div class="form-group">
-                        <label for="name">Your Name:</label>
+                        <label for="name">{{trans('client.reviews.add.form.name')}}:</label>
                         <input name="name" value="{{old('name')}}" required type="text" id="name" class="form-control">
                     </div>
                 </div><div class="col-sm-6">
                     <div class="form-group">	
-                        <label for="country">Your Country</label> 
+                        <label for="country">{{trans('client.reviews.add.form.country')}}</label> 
                         <input name="country" value="{{old('country')}}" required type="text" id="country" class="form-control">
                     </div>
                 </div></div>
@@ -63,9 +65,9 @@
                 
                 
                 <div class="form-group">
-                    <label for="rating">Your Review:</label>
+                    <label for="rating">{{trans('client.reviews.add.form.review')}}:</label>
                     <div class="input-group">
-                        <span class="input-group-addon">Rating</span>
+                        <span class="input-group-addon">{{trans('client.reviews.add.form.rating')}}</span>
                         <select name="rate" class="form-control">
                             <option value="5">5</option>
                             <option value="4">4</option>
@@ -78,19 +80,19 @@
                 </div>
                 
                 <div class="form-group">	
-                    <textarea name="comment" class="form-control" rows="12" id="comment" placeholder="Your review here...">{{old('comment')}}</textarea>
+                    <textarea name="comment" class="form-control" rows="12" id="comment" placeholder="{{trans('client.reviews.add.form.review_holder')}}">{{old('comment')}}</textarea>
                 </div>
                                     
                 
                 <hr class="break">
                         
                 <div class="panel panel-default">
-                    <div class="panel-heading">Additional Information</div>
+                    <div class="panel-heading">{{trans('client.reviews.add.form.additional_information')}}</div>
                     <div class="panel-body">
                         
-                        <label for="comments">Message to Us:</label>
+                        <label for="comments">{{trans('client.reviews.add.form.message_to_us')}}:</label>
                         <div class="form-group">
-                            <textarea name="message" class="form-control" rows="6" id="message" placeholder="What you did like, what you didn't like, how could we improve our service / website?">{{old('message')}}</textarea>
+                            <textarea name="message" class="form-control" rows="6" id="message" placeholder="{{trans('client.reviews.add.form.message_holder')}}">{{old('message')}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -110,13 +112,13 @@
                         
                         
                     
-                    <h2>Submit Review</h2>
+                    <h2>trans('client.reviews.add.form.submit')}}</h2>
                     
                     <div class="input-group input-group-lg">
                       {{--  <span class="input-group-addon" id="sizing-addon1">two + 5 = </span>
                       <input name="code" id="code" type="text" class="form-control" placeholder="?" aria-describedby="sizing-addon1">  --}}
                       <span class="input-group-btn">
-                        <input type="submit" name="Submit" value="Submit" class="btn btn-success">
+                        <input type="submit" name="Submit" value="trans('client.reviews.add.form.submit')}}" class="btn btn-success">
                       </span>
                     </div>
                     

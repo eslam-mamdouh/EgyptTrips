@@ -10,14 +10,16 @@
 									data-show-faces="false" data-share="true"></div>
 						
 							</div>
-							<h1>Excursions, Tours & Trips in {{$dist}}</h1>
-							<p class="lead">Egypt Excursions offers tours and excursions from all the major tourist
-								resorts in Egypt including Cairo, Luxor, Sharm el Sheikh, Hurghada, Alexandria and
-								Aswan. </p>
-							<p>We've been taking UK tourists on tours to Egypt's famous sights since 1998 so we're one
-								of Egypt's most established tour operators.</p>
+							<h1>{{trans('client.trips.index.title')}} {{$dist}}</h1>
+							<p class="lead">
+								{{trans('client.trips.index.header')}}  
+							</p>
+							<p>
+								{{trans('client.trips.index.info')}}
+							</p>
 							<div class="catbanner" style="background-image: url(systemimages/cat_banners/4.jpg); ">
-								<h2><a href="excursions-from-hurghada.html"> All Tours, Excursions and Trips from {{$dist}}
+								<h2><a href="">
+									 All Tours, Excursions and Trips from {{$dist}}
 										<small>from just 7 per person in our sale</small></a></h2>
 							</div>
 							<div class="catHolder">
@@ -44,7 +46,7 @@
                                                                 <i class="fa fa-star"></i>
                                                             @endfor
                                                     </div>
-                                                    <p class="s">{!!$trip->description !!}</p>
+                                                    <div class="s">{!!$trip->description !!}</div>
                                                     <div class="fprice">${{$trip->price}}</div>
                                                 </div>
                                             </div>

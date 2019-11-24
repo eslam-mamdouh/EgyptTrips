@@ -45,13 +45,23 @@
 					<a class="navbar-brand" href="/index.html"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
+				<span style="margin-top:20px !important">
+					<label>Language: </label>
+					<select id="lang" placeholder="Language">
+						<option value="en" @if(App::getLocale()=="en") selected @endif>English</option>
+						<option value="ru" @if(App::getLocale()=="ru") selected @endif>Russia</option>
+						<option value="de" @if(App::getLocale()=="de") selected @endif>Germany</option>
+						<option value="fr" @if(App::getLocale()=="fr") selected @endif>French</option>
+						<option value="ar" @if(App::getLocale()=="ar") selected @endif>Arabic</option>
+					</select>
+				</span>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/offers">{{trans('Offers')}}</a></li>
-						<li><a href="/reviews">Reviews</a></li>
-                        <li><a href="/galleries">Gallary</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/">{{trans('client.nav.home')}}</a></li>
+                        <li><a href="/offers">{{trans('client.nav.offers')}}</a></li>
+						<li><a href="/reviews">{{trans('client.nav.reviews')}}</a></li>
+                        <li><a href="/galleries">{{trans('client.nav.gallery')}}</a></li>
+                        <li><a href="/contact">{{trans('client.nav.contact')}}</a></li>
 						{{-- <li><a href="/"><i class="fa fa-list-alt"></i> Booking</a></li> --}}
 						<!-- <li class="visible-xs visible-sm"><a href="/booking.html"><i class="fa fa-shopping-cart"></i> My Basket</a></li> -->
 					</ul>
@@ -123,7 +133,7 @@
 			<div class="tour-nav-sale">
 				<i class="fa fa-gift"></i> <strong>Sale Now On!</strong> &nbsp; Book 3 Excursions, Get 1 Free +
 				Discounts on all Excursions!
-				<a href="/booking.html" class="btn btn-xs btn-success">Book Now <span class="badge"
+				<a href="/booking.html" class="btn btn-xs btn-success">{{trans('client.book_now')}} <span class="badge"
 						id="book_btn_badge"></span></a>
 			</div>
 			<div class="container">
@@ -137,7 +147,7 @@
 						<ul class="nav navbar-nav">
 						@if(isset($distinations[0]))
 							<li class="dropdown yamm-fw">
-								<a href="//distination/trips/{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" style="background-image: url({{$distinations[0]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="//distination/trips/{{$distinations[0]->slug}}" id="cat_4" data-toggle="dropdown" style="background-image: url({{$distinations[0]->image}}); background-size:100%" class="dropdown-toggle"><span>{{trans('client.trips_from')}}
 										{{$distinations[0]->name}}</span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -218,7 +228,7 @@
 						@if(isset($distinations[1]))
 
 							<li class="dropdown yamm-fw">
-								<a href="/distination/trips/{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="/distination/trips/{{$distinations[1]->slug}}" id="cat_1" data-toggle="dropdown" style="	background-image: url({{$distinations[1]->image}}); background-size:100%" class="dropdown-toggle"><span>{{trans('client.trips_from')}}
 										{{$distinations[1]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -294,7 +304,7 @@
 							@endif
 							@if(isset($distinations[2]))
 							<li class="dropdown yamm-fw">
-								<a href="/distination/trips/{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" style="	background-image: url({{$distinations[2]->image}}); background-size:100%" class="dropdown-toggle"><span>Trips from
+								<a href="/distination/trips/{{$distinations[2]->slug}}" id="cat_5" data-toggle="dropdown" style="	background-image: url({{$distinations[2]->image}}); background-size:100%" class="dropdown-toggle"><span>{{trans('client.trips_from')}}
 										{{$distinations[2]->name}} </span></a>
 								<ul class="dropdown-menu">
 									<li>
@@ -304,7 +314,7 @@
 													<a href="/distination/trips/{{$distinations[2]->slug}}"><img src="{{$distinations[2]->image}}"
 															class="img-responsive img-rounded" /></a>
 													<a href="/distination/trips/{{$distinations[2]->slug}}" class="btn btn-primary btn-block">Show all
-														Trips from {{$distinations[2]->name}}</a>
+														{{trans('client.trips_from')}} {{$distinations[2]->name}}</a>
 												</div>
 												<div class="col-sm-9 col-md-6 tour-nav-m hidden-xs">
 													<div class="list-group tour-nav-items"><a href="/index.html"
@@ -366,7 +376,7 @@
 		<div class="wbg">
 			<!-- <div id="pay_logos_bottom">
 				<img src="/booking/img/secure.jpg" class="img-responsive" />
-				<div id="footer_copy">Copyright &copy;2019 egyptexcursions.co.uk - All Rights Reserved</div>
+				<div id="footer_copy">Copyright &copy;2019 {{env('APP_URL')}} - All Rights Reserved</div>
 			</div> -->
 			<div id="footer">
 				<div class="row">
@@ -450,6 +460,12 @@
 		ga('send', 'pageview');
 	</script>
 
+	<script>
+		$('#lang').change(function(){
+			var locale = $("#lang option:selected").val();
+			window.location.href="/lang/"+locale; 
+		})
+	</script>
 
 	@yield('scripts')
 </body>

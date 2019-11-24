@@ -1,5 +1,5 @@
 <div class="panel panel-info">
-                <div class="panel-heading">Cancellation Policy</div>
+                <div class="panel-heading">{{trans('client.right-side.cancel_policy')}}</div>
                 <ul class="list-group why_sharm">
                     <li class="list-group-item"><strong><i class="fa fa-comments"></i>Best Reviews
                             Around</strong>

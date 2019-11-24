@@ -8,10 +8,10 @@
 
     <div class="col-md-9">
 <!-- /.main col -->             
-<h1>Our Customer Reviews</h1>
+<h1>{{$trip->title}}</h1>
 <ul class="breadcrumb">
-    <li><a href="/reviews">Home</a>
-    <li class="active">Customer Reviews</li>
+    <li><a href="/">Home</a>
+    <li class="active">{{$trip->title}}</li>
 </ul>
 			
 <div class="row" style="margin-bottom: 15px;">

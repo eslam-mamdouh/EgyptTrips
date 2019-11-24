@@ -6,18 +6,17 @@
                     data-show-faces="false" data-share="true"></div>
         
             </div>
-            <h1>Excursions, Tours & Trips in Egypt</h1>
-            <p class="lead">Egypt Excursions offers tours and excursions from all the major tourist
-                resorts in Egypt including Cairo, Luxor, Sharm el Sheikh, Hurghada, Alexandria and
-                Aswan. </p>
+            <h1>{{trans('client.home.header')}}</h1>
+            <p class="lead">
+                {{trans('client.home.info')}}
+            </p>
             <p>We've been taking UK tourists on tours to Egypt's famous sights since 1998 so we're one
                 of Egypt's most established tour operators.</p>
 
             @foreach ($distinations as $dist)
                 
                 <div class="catbanner" style="background-image: url({{$dist->image}}); ">
-                    <h2><a href="excursions-from-hurghada.html">Tours, Excursions and Trips from {{$dist->name}}
-                            <small>from just 7 per person in our sale</small></a></h2>
+                    <h2><a href="excursions-from-hurghada.html">{{trans('client.home.dist_title')}} {{$dist->name}}</a></h2>
                 </div>
                 <div class="catHolder">
                     <div class="row">
@@ -35,7 +34,7 @@
                                         <span class="changeAddAjax"><span id="change_add_173"><a rel="nofollow"
                                                     href="javascript: addToEnquireList('add',{{$trip->id}})"
                                                     class="btn btn-success btn-bottom-right"><i
-                                                        class="fa fa-plus"></i> Add to Basket</a></span></span>
+                                                        class="fa fa-plus"></i> {{trans('client.add_to_basket')}}</a></span></span>
                                     </div>
                                     <div class="exbox-inner">
                                         <a class="exbox-h"
@@ -57,9 +56,8 @@
                     </div>
                     <div class="catHolder_bottom">
                         <p align="center"><a class="btn btn-primary"
-                                href="/distination/trips/{{$dist->slug}}">View all Trips from {{$dist->name}}</a></p>
-                        <p align="center">There's Trips from {{$dist->name}} starting from just &pound;7, click
-                            to view our full range.</p>
+                                href="/distination/trips/{{$dist->slug}}">{{trans('client.home.viewall')}} {{$dist->name}}</a></p>
+                        <p align="center">There's Trips from {{$dist->name}}</p>
                     </div>
                 </div>
             @endforeach
@@ -88,7 +86,7 @@
             <hr class="break" />
             @if($lstReview)
 
-                <h3>Our Latest Review</h3>
+                <h3>{{trans('client.home.last-review')}}</h3>
                 <div itemscope itemtype="http://data-vocabulary.org/Review" class="testomonials blue">
                         <div class="ph">
                             <img src="{{$lstReview->image}}" width="100px" height="100px" class="test_img" />

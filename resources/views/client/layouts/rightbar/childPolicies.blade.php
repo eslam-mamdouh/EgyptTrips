@@ -3,7 +3,7 @@
 
 						<aside class="">
 								<div class="policy">
-									<h2>Child Policy</h2>
+									<h2>{{trans('client.right-side.chile_policy')}}</h2>
 									<div class="notes text-center text-lg-left">
 										<div class="circle"><span><i class="fa fa-male"></i></span></div>
 										<p style="text-align: justify; line-height: 27px;">
@@ -15,7 +15,7 @@
 								</div>
 		
 								<div class="policy">
-									<h2>Cancellation Policy</h2>
+									<h2>{{trans('client.right-side.cancel_policy')}}</h2>
 									<div class="notes text-center text-lg-left">
 										<div class="circle"><span>X</span></div>
 										<p style="text-align: justify; line-height: 27px;">

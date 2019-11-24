@@ -3,10 +3,10 @@
 
 <div class="col-md-9">
 <!-- /.main col -->             
-<h1>Special Offers</h1>
+<h1>{{trans('client.offers.title')}}</h1>
 <ul class="breadcrumb">
     <li><a href="index.html" id="home">Home</a></li>
-    <li class="active">Special Offers on Excursions and Tours</li>
+    <li class="active">{{trans('client.offers.title')}}</li>
 </ul>
 
 @foreach ($offers as $offer)
@@ -14,7 +14,7 @@
 	<p>{!! $offer->description !!}</p>
 	<hr class="break" />
 @endforeach
-<h4 class="page-header">What Tours Can We Chose for Free?</h4>
+<h4 class="page-header">{{trans('client.offers.header')}}</h4>
 	<div>
 	<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
@@ -40,7 +40,7 @@
 										<div class="exbox f_in clearfix">
 											<div class="pp">&nbsp;</div>
 											<div class="exbox-img-hold">
-												<a href="glass-bottom-boat-hurghada-excursion"><img src="{{$trip->image}}" class="exbox-img" alt="Glass Bottom Boat Hurghada" /></a>
+												<a href="/trips/{{$trip->slug}}"><img src="{{$trip->image}}" class="exbox-img" alt="Glass Bottom Boat Hurghada" /></a>
 												<span class="changeAddAjax"><span id="change_add_163"><a rel="nofollow" href="javascript: addToEnquireList('add',{{$trip->id}})" class="btn btn-success btn-bottom-right"><i class="fa fa-plus"></i> Add to Basket</a></span></span>
 											</div>
 											<div class="exbox-inner">
@@ -50,7 +50,7 @@
 														<i class="fa fa-star"></i>
 													@endfor
 												</div>
-												<p class="s">{{$trip->description}}</p>
+												<div class="s">{!! $trip->description !!}</div>
 												<div class="fprice">&pound;{{$trip->price}}</div>
 											</div>
 										</div>

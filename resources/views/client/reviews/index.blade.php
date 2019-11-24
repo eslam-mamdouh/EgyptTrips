@@ -5,11 +5,15 @@
 <h1>Our Customer Reviews</h1>
 <ul class="breadcrumb">
     <li><a href="/reviews">Home</a>
-    <li class="active">Customer Reviews</li>
+    <li class="active">Reviews</li>
 </ul>
-<p>Don't just take our word for it, see why we're Egypt's favourite tour operator from reviews written by our previous customers. If you have been on a trip with us please feel free to leave a review and help spread the word!</p>
-<p align="center"><a href="/reviews/add" class="btn btn-success btn-lg">Write a Review</a></p>               
-<h2>{{$revCount}} Customers Have Written a Review so far <small>and more being added daily!</small></h2>
+<p>
+	{{trans('client.reviews.index.header')}}
+</p>
+<p align="center">
+	<a href="/reviews/add" class="btn btn-success btn-lg">{{trans('client.reviews.index.write_review')}}</a>
+</p>               
+<h2>{{$revCount}} {{trans('client.reviews.index.customer_count')}} </h2>
 			
 			@foreach($reviews as $review)
 
@@ -28,7 +32,7 @@
 							</div>
 					<div class="test_name">
 						<strong><span itemprop="reviewer">{{$review->name}}</span></strong> 
-						from {{$review->country}}  - {{$review->created_at}}
+						{{trans('client.reviews.index.from')}} {{$review->country}}  - {{$review->created_at}}
 					</div>
 				</div>
 

@@ -19298,9 +19298,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\web\Freelance\Tours\EgyptTrips\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\web\Freelance\Tours\EgyptTrips\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! E:\web\Freelance\Tours\EgyptTrips\resources\sass\admin\admin.scss */"./resources/sass/admin/admin.scss");
+__webpack_require__(/*! E:\web\Freelance\getYourTripEgypt\EgyptTrips\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\web\Freelance\getYourTripEgypt\EgyptTrips\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! E:\web\Freelance\getYourTripEgypt\EgyptTrips\resources\sass\admin\admin.scss */"./resources/sass/admin/admin.scss");
 
 
 /***/ })

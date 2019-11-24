@@ -5,9 +5,9 @@
 <h1>Contact Us</h1>
 <ul class="breadcrumb">
     <li><a href="index.html" id="home">Home</a></li>
-    <li class="active">Contact EgyptExcursions</li>
+    <li class="active">{{trans('client.contact.title')}}</li>
 </ul>
-<p class="lead">Welcome to egyptexcursions.co.uk</p>
+<p class="lead">{{trans('client.contact.welcome')}} GetYourTripEgypt.com</p>
 
 <h2>Enquiries</h2>
 @if (session('message'))
@@ -26,25 +26,25 @@
     @csrf
 <div class="row">
 <div class="col-sm-6 form-group">
-    <label for="name">Name:</label>
+    <label for="name">{{trans('client.contact.form.name')}}:</label>
     <input name="name" type="text" id="name" class="form-control" value="{{old('name')}}" />
     
 </div>
 <div class="col-sm-6 form-group">
-    <label for="email">Email:</label>
+    <label for="email">{{trans('client.contact.form.email')}}:</label>
     <input name="email" type="text" id="email" class="form-control" value="{{old('email')}}" />
     
 </div>
 </div>
 		<div class="form-group">
-			<label for="subject">Enquiry Regarding:</label>
+			<label for="subject">{{trans('client.contact.form.subject')}}:</label>
             <input name="subject" type="text" id="subject" value="{{old('subject')}}" class="form-control" />
 		</div> 
 <div class="form-group">
-	<label for="comment">Comments:</label>
+	<label for="comment">{{trans('client.contact.form.comment')}}:</label>
     <textarea name="comment" rows="4" class="form-control" id="comment"></textarea>
 </div>
-<p><input type="submit" name="Submit" value="Submit" class="btn btn-success" /></p>
+<p><input type="submit" name="Submit" value="{{trans('client.contact.form.submit')}}" class="btn btn-success" /></p>
 </form>
 <h2>Online Booking</h2>
 <p>If you would like to book now and reserve your places, please use our secure <a href="booking.html">online booking system</a>.</p>

@@ -1,12 +1,11 @@
 <div id="changeEnquireList">
                 <div class="panel panel-default">
-                    <div class="panel-heading">My Basket <span class="badge">0</span></div>
+                    <div class="panel-heading">{{trans('client.right-side.basket')}} <span class="badge">0</span></div>
                     <div class="list-group">
-                        <div class="panel-body">No Excursions in Basket</div>
+                        <div class="panel-body">{{trans('client.right-side.empty_basket')}}</div>
                     </div>
                     <div class="panel-footer"><a rel="nofollow" href="booking.html"
-                            class="btn btn-default btn-block"><i class="fa fa-shopping-cart"></i> My
-                            Basket</a>
+                            class="btn btn-default btn-block"><i class="fa fa-shopping-cart"></i> {{trans('client.right-side.basket')}}</a>
                     </div>
                 </div>
 </div>

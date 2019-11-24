@@ -1,7 +1,7 @@
 @extends('client.layouts.master')
 @section('content')
     <div class="col-md-12">
-					<h2 class="isotope-button-title">trip World Gallery</h2>
+					<h2 class="isotope-button-title">{{trans('client.gallery.title')}}</h2>
 					<hr>
 					<div id="isotope-filters" class="isotope-button-group">
 							<button type="button"

@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Hash;
 
 /////////////////////////// Client ///////////////////////////////
 
+Route::get("/lang/{locale}" , function($locale){
+    session()->put('locale', $locale);
+    return back();
+});
+
 Route::get("/" , 'Client\HomeController@index');
 Route::get("/contact" , 'Client\ContactController@index');
 Route::post("/contact" , 'Client\ContactController@postInquiry');

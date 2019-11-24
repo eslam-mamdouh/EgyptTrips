@@ -5,7 +5,7 @@
     </div>
 </div>
 <div class="panel panel-info">
-  <div class="panel-heading">Why EgyptExcursions?</div>
+  <div class="panel-heading">{{trans('client.right-side.why_us')}}</div>
   <ul class="list-group why_sharm">
     <li class="list-group-item"><strong><i class="fa fa-comments"></i>Best Reviews Around</strong>
     We're number one thanks to our fantastic customer reviews, they're better than Thomas Cooks and Thomsons.
