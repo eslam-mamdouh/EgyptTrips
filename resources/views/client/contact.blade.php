@@ -8,7 +8,8 @@
     <li class="active">{{trans('client.contact.title')}}</li>
 </ul>
 <p class="lead">{{trans('client.contact.welcome')}} GetYourTripEgypt.com</p>
-
+<p><strong>Email :</strong> info@getyourtripegypt.com</p>
+<p><strong>Phone :</strong> +201000388127</p>
 <h2>Enquiries</h2>
 @if (session('message'))
     <p class="alert alert-success">{{session('message')}}</p>

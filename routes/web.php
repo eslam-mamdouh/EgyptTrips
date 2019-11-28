@@ -21,6 +21,9 @@ Route::get("/lang/{locale}" , function($locale){
     return back();
 });
 
+Route::get("/trips/{slug}/book" , 'Client\bookingController@index');
+Route::post("/trips/{slug}/book" , 'Client\bookingController@book');
+
 Route::get("/" , 'Client\HomeController@index');
 Route::get("/contact" , 'Client\ContactController@index');
 Route::post("/contact" , 'Client\ContactController@postInquiry');
@@ -129,4 +132,26 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/reviews/bulk-destroy',                  'Admin\ReviewsController@bulkDestroy')->name('admin/reviews/bulk-destroy');
     Route::post('/admin/reviews/{review}',                      'Admin\ReviewsController@update')->name('admin/reviews/update');
     Route::delete('/admin/reviews/{review}',                    'Admin\ReviewsController@destroy')->name('admin/reviews/destroy');
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::get('/admin/bookings',                               'Admin\BookingsController@index');
+    Route::get('/admin/bookings/create',                        'Admin\BookingsController@create');
+    Route::post('/admin/bookings',                              'Admin\BookingsController@store');
+    Route::get('/admin/bookings/{booking}/edit',                'Admin\BookingsController@edit')->name('admin/bookings/edit');
+    Route::post('/admin/bookings/bulk-destroy',                 'Admin\BookingsController@bulkDestroy')->name('admin/bookings/bulk-destroy');
+    Route::post('/admin/bookings/{booking}',                    'Admin\BookingsController@update')->name('admin/bookings/update');
+    Route::delete('/admin/bookings/{booking}',                  'Admin\BookingsController@destroy')->name('admin/bookings/destroy');
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::get('/admin/bookings',                               'Admin\BookingsController@index');
+    Route::get('/admin/bookings/create',                        'Admin\BookingsController@create');
+    Route::post('/admin/bookings',                              'Admin\BookingsController@store');
+    Route::get('/admin/bookings/{booking}/edit',                'Admin\BookingsController@edit')->name('admin/bookings/edit');
+    Route::post('/admin/bookings/bulk-destroy',                 'Admin\BookingsController@bulkDestroy')->name('admin/bookings/bulk-destroy');
+    Route::post('/admin/bookings/{booking}',                    'Admin\BookingsController@update')->name('admin/bookings/update');
+    Route::delete('/admin/bookings/{booking}',                  'Admin\BookingsController@destroy')->name('admin/bookings/destroy');
 });

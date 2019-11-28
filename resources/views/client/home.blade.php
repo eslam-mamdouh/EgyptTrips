@@ -32,13 +32,13 @@
                                                 class="exbox-img"
                                                 alt="" /></a>
                                         <span class="changeAddAjax"><span id="change_add_173"><a rel="nofollow"
-                                                    href="javascript: addToEnquireList('add',{{$trip->id}})"
+                                                    href="/trips/{{$trip->slug}}/book"
                                                     class="btn btn-success btn-bottom-right"><i
                                                         class="fa fa-plus"></i> {{trans('client.add_to_basket')}}</a></span></span>
                                     </div>
                                     <div class="exbox-inner">
                                         <a class="exbox-h"
-                                            href="">{{$trip->title}}</a>
+                                            href="/trips/{{$trip->slug}}">{{$trip->title}}</a>
                                         <div class="stars">
                                              @for($i=1 ; $i<=$trip->rate(); $i++)
                                                 <i class="fa fa-star"></i>

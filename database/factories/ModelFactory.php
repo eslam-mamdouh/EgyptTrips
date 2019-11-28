@@ -105,3 +105,43 @@ $factory->define(App\Models\Review::class, static function (Faker\Generator $fak
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Booking::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Booking::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'email' => $faker->email,
+        'country' => $faker->sentence,
+        'phone' => $faker->sentence,
+        'date' => $faker->date(),
+        'adults' => $faker->sentence,
+        'children' => $faker->sentence,
+        'location' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Booking::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'email' => $faker->email,
+        'country' => $faker->sentence,
+        'phone' => $faker->sentence,
+        'date' => $faker->date(),
+        'trip' => $faker->sentence,
+        'adults' => $faker->sentence,
+        'children' => $faker->sentence,
+        'location' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        
+        
+    ];
+});

@@ -36,6 +36,14 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('child_price'), 'has-success': this.fields.child_price && this.fields.child_price.valid }">
+    <label for="child_price" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.trip.columns.child_price') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.child_price" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('child_price'), 'form-control-success': this.fields.child_price && this.fields.child_price.valid}" id="child_price" name="child_price" placeholder="{{ trans('admin.trip.columns.child_price') }}">
+        <div v-if="errors.has('child_price')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('child_price') }}</div>
+    </div>
+</div>
+
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('distination_id'), 'has-success': this.fields.distination_id && this.fields.distination_id.valid }">
     <label for="distination_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.trip.columns.distination_id') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">

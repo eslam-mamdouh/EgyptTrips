@@ -1,7 +1,7 @@
 <div class="panel panel-info">
     <div class="panel-heading">Voted "Outstanding" Year-after-Year</div>
     <div class="panel-body">
-        <p align="center"><a href="http://www.tripadvisor.co.uk/Attraction_Review-g297555-d1166603-Reviews-Sharm_Excursions-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html" target="_blank"><img src="img/offers/certificate-right.jpg" class="img-responsive" /></a></p>
+        <p align="center"><a href="https://www.tripadvisor.com/Attraction_Review-g297549-d19126481-Reviews-Get_Your_Trip_Egypt-Hurghada_Red_Sea_and_Sinai.html" target="_blank"><img src="img/offers/certificate-right.jpg" class="img-responsive" /></a></p>
     </div>
 </div>
 <div class="panel panel-info">

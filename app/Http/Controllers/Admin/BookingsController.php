@@ -3,43 +3,40 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Trip\DestroyTrip;
-use App\Http\Requests\Admin\Trip\IndexTrip;
-use App\Http\Requests\Admin\Trip\StoreTrip;
-use App\Http\Requests\Admin\Trip\UpdateTrip;
-use App\Models\Trip;
-use App\Models\TripsDistination;
+use App\Http\Requests\Admin\Booking\DestroyBooking;
+use App\Http\Requests\Admin\Booking\IndexBooking;
+use App\Http\Requests\Admin\Booking\StoreBooking;
+use App\Http\Requests\Admin\Booking\UpdateBooking;
+use App\Models\Booking;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
-class TripsController extends Controller
+class BookingsController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexTrip $request
+     * @param IndexBooking $request
      * @return Response|array
      */
-    public function index(IndexTrip $request)
+    public function index(IndexBooking $request)
     {
         // create and AdminListing instance for a specific model and
-        
-        $data = AdminListing::create(Trip::class)->processRequestAndGet(
+        $data = AdminListing::create(Booking::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'title', 'price', 'distination_id'],
+            ['id', 'name', 'country', 'phone', 'date', 'trip','total_price'],
 
             // set columns to searchIn
-            ['id', 'title', 'description']
+            ['id', 'name', 'email', 'country', 'phone', 'trip', 'adults', 'children', 'location']
         );
 
-        // dd($data[0]);
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
@@ -49,7 +46,7 @@ class TripsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.trip.index', ['data' => $data]);
+        return view('admin.booking.index', ['data' => $data]);
     }
 
     /**
@@ -60,44 +57,42 @@ class TripsController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.trip.create');
-        $distinations = TripsDistination::all();
-        // dd($distinations);
-        return view('admin.trip.create' , ["distinations"=>$distinations]);
+        $this->authorize('admin.booking.create');
+
+        return view('admin.booking.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreTrip $request
+     * @param StoreBooking $request
      * @return Response|array
      */
-    public function store(StoreTrip $request)
+    public function store(StoreBooking $request)
     {
         // Sanitize input
         $sanitized = $request->validated();
-        $sanitized['slug'] = $sanitized['title']."-".rand(1 , 100);
-        // dd($sanitized);
-        // Store the Trip
-        $trip = Trip::create($sanitized);
+
+        // Store the Booking
+        $booking = Booking::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/trips'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/bookings'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/trips');
+        return redirect('admin/bookings');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Trip $trip
+     * @param Booking $booking
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Trip $trip)
+    public function show(Booking $booking)
     {
-        $this->authorize('admin.trip.show', $trip);
+        $this->authorize('admin.booking.show', $booking);
 
         // TODO your code goes here
     }
@@ -105,55 +100,56 @@ class TripsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Trip $trip
+     * @param Booking $booking
      * @throws AuthorizationException
      * @return Response
      */
-    public function edit(Trip $trip)
+    public function edit(Booking $booking)
     {
-        $this->authorize('admin.trip.edit', $trip);
+        $this->authorize('admin.booking.edit', $booking);
 
-        $distinations = TripsDistination::all();
-        return view('admin.trip.edit', [
-            'trip' => $trip,
-            'distinations' =>$distinations
+
+        return view('admin.booking.edit', [
+            'booking' => $booking,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateTrip $request
-     * @param Trip $trip
+     * @param UpdateBooking $request
+     * @param Booking $booking
      * @return Response|array
      */
-    public function update(UpdateTrip $request, Trip $trip)
+    public function update(UpdateBooking $request, Booking $booking)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        // Update changed values Trip
-        $trip->update($sanitized);
+
+        // Update changed values Booking
+        $booking->update($sanitized);
+
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/trips'),
+                'redirect' => url('admin/bookings'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/trips');
+        return redirect('admin/bookings');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyTrip $request
-     * @param Trip $trip
+     * @param DestroyBooking $request
+     * @param Booking $booking
      * @throws Exception
      * @return Response|bool
      */
-    public function destroy(DestroyTrip $request, Trip $trip)
+    public function destroy(DestroyBooking $request, Booking $booking)
     {
-        $trip->delete();
+        $booking->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -165,17 +161,17 @@ class TripsController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param DestroyTrip $request
+     * @param DestroyBooking $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(DestroyTrip $request) : Response
+    public function bulkDestroy(DestroyBooking $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Trip::whereIn('id', $bulkChunk)->delete();
+                    Booking::whereIn('id', $bulkChunk)->delete();
 
                     // TODO your code goes here
                 });

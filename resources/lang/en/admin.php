@@ -193,5 +193,67 @@ return [
         ],
     ],
 
+    'booking' => [
+        'title' => 'Bookings',
+
+        'actions' => [
+            'index' => 'Bookings',
+            'create' => 'New Booking',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'booking' => [
+        'title' => 'Bookings',
+
+        'actions' => [
+            'index' => 'Bookings',
+            'create' => 'New Booking',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'email' => 'Email',
+            'country' => 'Country',
+            'phone' => 'Phone',
+            'date' => 'Date',
+            'adults' => 'Adults',
+            'children' => 'Children',
+            'location' => 'Location',
+            
+        ],
+    ],
+
+    'booking' => [
+        'title' => 'Bookings',
+
+        'actions' => [
+            'index' => 'Bookings',
+            'create' => 'New Booking',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'email' => 'Email',
+            'country' => 'Country',
+            'phone' => 'Phone',
+            'date' => 'Date',
+            'trip' => 'Trip',
+            'adults' => 'Adults',
+            'children' => 'Children',
+            'location' => 'Location',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

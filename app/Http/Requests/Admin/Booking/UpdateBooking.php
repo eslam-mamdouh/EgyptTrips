@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Trip;
+namespace App\Http\Requests\Admin\Booking;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateTrip extends FormRequest
+class UpdateBooking extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class UpdateTrip extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows('admin.trip.edit', $this->trip);
+        return Gate::allows('admin.booking.edit', $this->booking);
     }
 
     /**
@@ -26,12 +26,15 @@ class UpdateTrip extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['sometimes', 'string'],
-            'description' => ['sometimes', 'string'],
-            'price' => ['sometimes', 'numeric'],
-            'child_price' => ['sometimes', 'numeric'],
-            'distination_id' => ['sometimes', 'numeric'],
-            'slug' => ['sometimes', Rule::unique('trips', 'slug')->ignore($this->trip->getKey(), $this->trip->getKeyName()), 'string'],
+            'name' => ['sometimes', 'string'],
+            'email' => ['sometimes', 'email', 'string'],
+            'country' => ['sometimes', 'string'],
+            'phone' => ['sometimes', 'string'],
+            'date' => ['sometimes', 'date'],
+            'trip' => ['sometimes', 'string'],
+            'adults' => ['sometimes', 'string'],
+            'children' => ['sometimes', 'string'],
+            'location' => ['sometimes', 'string'],
             
         ];
     }

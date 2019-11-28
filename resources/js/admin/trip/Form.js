@@ -8,6 +8,7 @@ Vue.component('trip-form', {
                 title:  '' ,
                 description:  '' ,
                 price:  '' ,
+                child_price:  '' ,
                 distination_id:  '' ,
             },
             mediaCollections: ['trips']

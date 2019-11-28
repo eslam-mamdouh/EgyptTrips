@@ -41,8 +41,8 @@
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>
 						 <i class="fa fa-bars"></i> </button>
-					<a href="/booking.html" class="navbar-toggle"><i class="fa fa-shopping-cart"></i></a>
-					<a class="navbar-brand" href="/index.html"></a>
+					<a href="/" class="navbar-toggle"><i class="fa fa-shopping-cart"></i></a>
+					<a class="navbar-brand" href="/"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<span style="margin-top:20px !important">

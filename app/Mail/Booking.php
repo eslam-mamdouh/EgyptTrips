@@ -7,10 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Contact extends Mailable
+class Booking extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $data;
     /**
      * Create a new message instance.
@@ -29,7 +28,7 @@ class Contact extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->data['subject'])
-        ->markdown('emails.contacts.replies');
+        return $this->subject("Trip Booking")
+        ->markdown('emails.bookings.details');
     }
 }

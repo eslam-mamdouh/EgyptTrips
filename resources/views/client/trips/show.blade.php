@@ -138,7 +138,7 @@
 
 				
 		<span id="changeAddAjax"> <span id="change_add_83">
-			<a rel="nofollow" href="javascript: addToEnquireList('add',83)" class="btn btn-lg btn-success"><i class="fa fa-plus-circle"></i>  Add to Basket</a>
+			<a rel="nofollow" href="/trips/{{$trip->slug}}/book" class="btn btn-lg btn-success"><i class="fa fa-plus-circle"></i> {{trans('client.add_to_basket')}}</a>
 		</span> </span>
 		
 				{{-- <a href="/booking/login.php?add_favourites=83" class="btn btn-default btn-lg">

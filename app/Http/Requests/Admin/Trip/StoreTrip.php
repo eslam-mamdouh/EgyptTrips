@@ -29,6 +29,7 @@ class StoreTrip extends FormRequest
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
             'price' => ['required', 'numeric'],
+            'child_price' => ['required', 'numeric'],
             'distination_id' => ['required', 'exists:trips_distinations,id' ,'numeric'],   
             'trips' => ['required']         
         ];

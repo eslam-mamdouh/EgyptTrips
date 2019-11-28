@@ -8,3 +8,4 @@ import './profile-edit-profile';
 import './profile-edit-password';
 import './admin-user';
 import './review';
+import './booking';

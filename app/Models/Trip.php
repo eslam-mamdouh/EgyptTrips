@@ -17,6 +17,7 @@ class Trip extends Model implements HasMedia
         'title',
         'description',
         'price',
+        'child_price',
         'distination_id',
         'slug'
     
