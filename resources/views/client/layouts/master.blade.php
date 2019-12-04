@@ -372,48 +372,132 @@
 		<!-- /.wbg -->
 	</div>
 	<!-- /.container -->
-    <div class="container">
+    
+<div class="container">
 		<div class="wbg">
-			<!-- <div id="pay_logos_bottom">
-				<img src="/booking/img/secure.jpg" class="img-responsive" />
-				<div id="footer_copy">Copyright &copy;2019 {{env('APP_URL')}} - All Rights Reserved</div>
-			</div> -->
+	
 			<div id="footer">
 				<div class="row">
-					<div class="col-md-4">
-						<img src="/img/GYT2.png" class="img-responsive" />
+					<div class="col-md-3 col-sm-12">
+						<img src="img/GYT2.png" class="img-responsive" />
 					</div>
-					<div class="col-md-4">
-						<div class="fb-page" data-href="/https://www.facebook.com/egyptexcursionstour/"
-							data-tabs="timeline" data-height="390" data-small-header="false"
-							data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-			
-						</div>
-						<div id="fb-root"></div>
-						<script>(function (d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (d.getElementById(id)) return;
-								js = d.createElement(s); js.id = id;
-								js.src = "en_US/sdk.js";
-								fjs.parentNode.insertBefore(js, fjs);
-							}(document, 'script', 'facebook-jssdk'));</script>
+					<div class="col-md-5 col-sm-12">
+							<h2>Enquiries</h2>
+							@if (session('message'))
+								<p class="alert alert-success">{{session('message')}}</p>
+							@endif
+							@if ($errors->any())
+								<div class="alert alert-danger">
+									<ul>
+										@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+							@endif
+						<form id="form1" name="form1" method="post" action="/contact">
+								@csrf
+							<div class="row">
+							<div class="col-sm-6 form-group">
+								<label for="name">{{trans('client.contact.form.name')}}:</label>
+								<input name="name" type="text" id="name" class="form-control" value="{{old('name')}}" />
+								
+							</div>
+							<div class="col-sm-6 form-group">
+								<label for="email">{{trans('client.contact.form.email')}}:</label>
+								<input name="email" type="text" id="email" class="form-control" value="{{old('email')}}" />
+								
+							</div>
+							</div>
+									<div class="form-group">
+										<label for="subject">{{trans('client.contact.form.subject')}}:</label>
+										<input name="subject" type="text" id="subject" value="{{old('subject')}}" class="form-control" />
+									</div> 
+							<div class="form-group">
+								<label for="comment">{{trans('client.contact.form.comment')}}:</label>
+								<textarea name="comment" rows="4" class="form-control" id="comment"></textarea>
+							</div>
+							<p><input type="submit" name="Submit" value="{{trans('client.contact.form.submit')}}" class="btn btn-success" /></p>
+						</form>
 					</div>
-					<div class="col-md-4">
-						<div class="list">
-							<a href="/contact.html" class="list-item">Site contact</a>
-							<a href="/special-offers.html" class="list-item">Tour Packages</a>
-							<a href="/cancellation-policy.html" class="list-item">Cancellation Policy</a>
-						</div>
-						<br />
-						<a href="/"
-							target="_blank" title="DMCA.com Protection Status" class="dmca-badge"> 
-							<img
-								src="/Badges/DMCA_logo-std-btn180w.png" alt="DMCA.com Protection Status"
-								class="img-responsive" /></a>
-						<img src="/img/accreditations.png" class="img-responsive" style="margin-top: 10px;" />
-					</div>
+				<div class="col-sm-12 col-md-4">
+					<h2>Online Booking</h2>
+					<p>If you would like to book now and reserve your places, please use our secure
+						 <a href="">online booking system</a>.</p>
+						 <p>Follow Us :</p>
+						 <ul class="footer-icon" style="    list-style-type: none;">
+                            <!-- whatsapp -->
+                            <li style="display: inline-block;">
+                                <a target="_blank" href="tel:+201000388127" class="" style="line-height: 50px;
+                                font-size: 23px;
+                                text-align: center;
+                                color: #45bf61;
+                                margin: 0 20px 20px 0; 
+                                text-decoration: none;">
+                                <i class="fa fa-whatsapp"></i></a>
+                            </li>
+                                <!-- viber -->
+                            <li style="display: inline-block;">
+                                    <a target="_blank" href="tel:+201000388127" class="" style="line-height: 50px;
+                                    font-size: 19px;
+                                    text-align: center;
+                                    color: #45bf61;
+                                    margin: 0 20px 20px 0; 
+                                    text-decoration: none;">
+                                    <span class="iconify" data-icon="fa-brands:viber" data-inline="false"></span>
+                                </a>
+                            </li>
+                            <!-- facebook  -->
+                            <li style="display: inline-block;">
+                                    <a href="#" target="_blank" href="https://www.facebook.com/GetYourTripEgypt/" class="" style="line-height: 50px;
+                                    font-size: 19px;
+                                    text-align: center;
+                                    color: #45bf61;
+                                    margin: 0 20px 20px 0; 
+                                    text-decoration: none;">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </li>
+
+                            <!-- youtube -->
+                            <li style="display: inline-block;">
+                                    <a target="_blank" href="https://www.youtube.com/channel/UC6yIn_f3ZNuKwmC3vGJvtCw" class="" style="line-height: 50px;
+                                    font-size: 19px;
+                                    text-align: center;
+                                    color: #45bf61;
+                                    margin: 0 20px 20px 0; 
+                                    text-decoration: none;">
+                                    <i class="fa fa-youtube" aria-hidden="true"></i></a>
+                            </li>
+
+
+                            <!-- vk -->
+                            <li style="display: inline-block;">
+                                    <a target="_blank" href="https://vk.com/getyourtripegypt" class="" style="line-height: 50px;
+                                    font-size: 19px;
+                                    text-align: center;
+                                    color: #45bf61;
+                                    margin: 0 20px 20px 0; 
+                                    text-decoration: none;">
+                                    <i class="fa fa-vk"></i>
+                                
+                                </a>
+                            </li>
+                            <!-- instagram -->
+
+                            <li style="display: inline-block;">
+                                    <a target="_blank" href="https://instagram.com/getyourtrip_egypt?igshid=rgo5j587115d" class="" style="line-height: 50px;
+                                    font-size: 19px;
+                                    text-align: center;
+                                    color: #45bf61;
+                                    margin: 0 20px 20px 0; 
+                                    text-decoration: none;">
+                                    <i class="fa fa-instagram"></i>
+                                
+                                </a>
+                            </li>
+                        </ul>
+				    </div>
 				</div>
-		
 			</div>
 		</div>
 	</div>

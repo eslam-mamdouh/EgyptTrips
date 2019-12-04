@@ -133,6 +133,7 @@ class TripsController extends Controller
         $sanitized = $request->getSanitized();
         // Update changed values Trip
         $trip->update($sanitized);
+
         if ($request->ajax()) {
             return [
                 'redirect' => url('admin/trips'),

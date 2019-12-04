@@ -18,6 +18,7 @@ class CreateTripsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->double('price');
+            $table->double('child_price');
             $table->bigInteger('distination_id')->unsigned();
             $table->foreign('distination_id')->references("id")->on("trips_distinations")->ocDelete("cascade");
             $table->string('slug')->unique();

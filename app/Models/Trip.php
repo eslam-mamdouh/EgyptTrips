@@ -7,11 +7,16 @@ use Brackets\Media\HasMedia\ProcessMediaTrait;
 use Brackets\Media\HasMedia\AutoProcessMediaTrait;
 use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Brackets\Translatable\Traits\HasTranslations;
+
 class Trip extends Model implements HasMedia
 {
     use ProcessMediaTrait;
     use AutoProcessMediaTrait;
     use HasMediaCollectionsTrait;
+    use HasTranslations;
+
+    public $translatable = ['title' , 'description'];
 
     protected $fillable = [
         'title',
